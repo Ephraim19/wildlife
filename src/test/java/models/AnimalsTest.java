@@ -8,7 +8,7 @@ class AnimalsTest {
     @Test
     void AnimalInstatiatesCorrectly() {
         Animals animal = new Animals(1,"cow");
-        assertTrue(animal.equals(animal));
+        assertEquals(true,animal instanceof Animals);
     }
 
     @Test
