@@ -27,16 +27,18 @@ public class App {
             return new ModelAndView(model,"endangered-animal.hbs");
         },new HandlebarsTemplateEngine());
 
-        //add animal and save
-        post("/sighting/animal",(request, response) -> {
+        //Add sightings
+        post("/new/sighting",(request, response) -> {
             Map<String,Object> model=new HashMap<String, Object>();
-            String animalName = request.queryParams("name");
-            model.put("animal",animalName);
-            Animals animal = new Animals(animalName);
-            animal.save();
-            //get all animals
-            model.put("animals",Animals.all());
-            return new ModelAndView(model,"sighting.hbs");
+
+            String animalId = request.queryParams("animal");
+            String location = request.queryParams ("loc");
+            String ranger = request.queryParams("name");
+            System.out.println(ranger);
+            Sightings sight = new Sightings(animalId,location,ranger);
+            sight.save();
+            response.redirect("/");
+            return null;
         },new HandlebarsTemplateEngine());
 
         //add endangered animals and save
@@ -49,21 +51,25 @@ public class App {
             animal.save();
             //get all endangered animals
             model.put("animals",EndageredAnimals.all());
-            return new ModelAndView(model,"sighting.hbs");
+            System.out.println(EndageredAnimals.all());
+            return new ModelAndView(model,"endangeredSightings.hbs");
         },new HandlebarsTemplateEngine());
 
-        //Add sightings
-        post("/sighting",(request, response) -> {
+        //add animal and save
+        post("/sighting/animal",(request, response) -> {
             Map<String,Object> model=new HashMap<String, Object>();
-
-            String animalId = request.queryParams("animal");
-            String location = request.queryParams ("loc");
-            String ranger = request.queryParams("name");
-            System.out.println(animalId);
-            Sightings sight = new Sightings(animalId,location,ranger);
-            sight.save();
+            String animalName = request.queryParams("name");
+            //model.put("animal",animalName);
+            Animals animal = new Animals(animalName);
+            animal.save();
+            //get all animals
+            model.put("animals",Animals.all());
             return new ModelAndView(model,"sighting.hbs");
         },new HandlebarsTemplateEngine());
+
+
+
+
 
 
     }
