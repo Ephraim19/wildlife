@@ -24,6 +24,13 @@ class AnimalsTest {
         Animals animal = new Animals("cow");
         assertEquals("cow",animal.getName());
     }
+
+    @Test
+    public void InstancesAreSaved() {
+        Animals animal=new Animals("cow");
+        animal.save();
+        assertEquals(Animals.all().get(0), animal);
+    }
     @Test
     public void save_assignsIdToObject() {
         Animals animal = new Animals("cow");
