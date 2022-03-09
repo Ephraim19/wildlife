@@ -25,7 +25,22 @@ public class App {
             Map<String,Object> model=new HashMap<String, Object>();
             return new ModelAndView(model,"endangered-animal.hbs");
         },new HandlebarsTemplateEngine());
+
+        //add sightings
+        get("sighting",(request, response) -> {
+            Map<String,Object> model=new HashMap<String, Object>();
+            return new ModelAndView(model,"sighting.hbs");
+        },new HandlebarsTemplateEngine());
     }
 
 
 }
+
+
+
+
+
+
+
+
+
