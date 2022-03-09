@@ -1,48 +1,55 @@
-<b>Add endangered animals</b>
-<form action="/sighting/endangered" method="post" >
-    <div class="mb-3">
-        <label for="name" class="form-label">Your name</label>
-        <input type="text" class="form-control" id="name" name="name">
-    </div>
-    <p>Choose animal age</p>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="age" id="age" value="newborn">
-        <label class="form-check-label" for="age">
-            newborn
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="age" id="age" value="young">
-        <label class="form-check-label" for="age1">
-            young
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="age" id="age" value="adult">
-        <label class="form-check-label" for="age2">
-            adult
-        </label>
-    </div>
+<div class="container">
+    <b>Add endangered animals</b>
+    <form action="/sighting/endangered" method="post" >
+        <div class="mb-3">
+            <label for="name" class="form-label">Your name</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <p>Choose animal age</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="age" id="age" value="newborn">
+            <label class="form-check-label" for="age">
+                newborn
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="age" id="age" value="young">
+            <label class="form-check-label" for="age1">
+                young
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="age" id="age" value="adult">
+            <label class="form-check-label" for="age2">
+                adult
+            </label>
+        </div>
 
-    <p>Choose animal health</p>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="health" id="health" value="healthy">
-        <label class="form-check-label" for="health">
-            Healthy
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="health" id="health" value="ill">
-        <label class="form-check-label" for="health1">
-            Ill
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="health" id="health" value="okay">
-        <label class="form-check-label" for="health2">
-            okay
-        </label>
-    </div>
+        <p>Choose animal health</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="health" id="health" value="healthy">
+            <label class="form-check-label" for="health">
+                Healthy
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="health" id="health" value="ill">
+            <label class="form-check-label" for="health1">
+                Ill
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="health" id="health" value="okay">
+            <label class="form-check-label" for="health2">
+                okay
+            </label>
+        </div>
 
-    <button type="submit" class="btn btn-warning mt-3" >Submit</button>
-</form>
+        <button type="submit" class="btn btn-warning mt-3" >Submit</button>
+    </form>
+
+</div>
+
+
+
+{{> layout.hbs}}
