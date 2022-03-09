@@ -1,4 +1,5 @@
 package models;
+
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -7,8 +8,6 @@ import java.util.Map;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
-
-import models.Animals;
 public class App {
     public static void main(String[] args) {
         get("/",(request, response) -> {
@@ -35,18 +34,38 @@ public class App {
             model.put("animal",animalName);
             Animals animal = new Animals(animalName);
             animal.save();
+            //get all animals
+            model.put("animals",Animals.all());
             return new ModelAndView(model,"sighting.hbs");
         },new HandlebarsTemplateEngine());
 
-        //add endangered animal
+        //add endangered animals and save
         post("/sighting/endangered",(request, response) -> {
             Map<String,Object> model=new HashMap<String, Object>();
             String animalName = request.queryParams("name");
             String age = request.queryParams ("age");
             String health = request.queryParams("health");
-            System.out.println(age);
+            EndageredAnimals animal = new EndageredAnimals(animalName,age,health);
+            animal.save();
+            //get all endangered animals
+            model.put("animals",EndageredAnimals.all());
             return new ModelAndView(model,"sighting.hbs");
         },new HandlebarsTemplateEngine());
+
+        //Add sightings
+        post("/sighting",(request, response) -> {
+            Map<String,Object> model=new HashMap<String, Object>();
+
+            String animalId = request.queryParams("animal");
+            String location = request.queryParams ("loc");
+            String ranger = request.queryParams("name");
+            System.out.println(animalId);
+            Sightings sight = new Sightings(animalId,location,ranger);
+            sight.save();
+            return new ModelAndView(model,"sighting.hbs");
+        },new HandlebarsTemplateEngine());
+
+
     }
 
 

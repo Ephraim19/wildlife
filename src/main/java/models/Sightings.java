@@ -1,12 +1,14 @@
 package models;
 
-public class Sightings {
-    private int id;
-    private int rangerName;
-    private int animal_id;
-    private int location;
+import org.sql2o.Connection;
 
-    public Sightings( int rangerName, int animal_id, int location) {
+public class Sightings implements WildlifeInterface {
+    private int id;
+    private String rangerName;
+    private String animal_id;
+    private String location;
+
+    public Sightings(String animal_id,  String location, String rangerName) {
         this.id = id;
         this.rangerName = rangerName;
         this.animal_id = animal_id;
@@ -17,31 +19,30 @@ public class Sightings {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public int getRangerName() {
+    public String getRangerName() {
         return rangerName;
     }
 
-    public void setRangerName(int rangerName) {
-        this.rangerName = rangerName;
-    }
 
-    public int getAnimal_id() {
+    public String getAnimal_id() {
         return animal_id;
     }
 
-    public void setAnimal_id(int animal_id) {
-        this.animal_id = animal_id;
-    }
-
-    public int getLocation() {
+    public String getLocation() {
         return location;
     }
-
-    public void setLocation(int location) {
-        this.location = location;
+    //saving to the database
+    @Override
+    public void save() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "INSERT INTO sightings (animal,location,ranger) VALUES (:animal_id,:location,:rangerName)";
+            this.id = (int) con.createQuery(sql, true)
+                    .addParameter("animal", this.animal_id)
+                    .addParameter("location",this.location)
+                    .addParameter("ranger",this.rangerName)
+                    .executeUpdate()
+                    .getKey();
+        }
     }
 }

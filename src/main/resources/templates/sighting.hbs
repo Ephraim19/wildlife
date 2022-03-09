@@ -1,3 +1,8 @@
+<div class="bg-warning mb-2 ">
+    <div class="p-4 mx-auto" style="width: 150px;">
+        <h4>Wildlife tracker</h4>
+    </div>
+</div>
 
 <div class="container">
     <p><b>Add a sighting</b></p>
@@ -12,10 +17,8 @@
                     <label class="input-group-text" for="animal">Animal</label>
                 </div>
                 <select class="custom-select" id="animal" name="animal">
-                    <option selected>select</option>
-
                         {{#each animals}}
-                            <option name="animal" value={{animals.name}}>{{animals.name}}</option>
+                            <option name="animal" value={{id}}>{{name}}</option>
                         {{/each}}
                 </select>
             </div>

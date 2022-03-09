@@ -34,6 +34,7 @@ public class Animals extends AnimalsInherit {
         }
     }
 
+
     //deleting from database
     public void delete(){
         try (Connection con=DB.sql2o.open()){
@@ -44,6 +45,8 @@ public class Animals extends AnimalsInherit {
 
         }
     }
+
+
 
 }
 
