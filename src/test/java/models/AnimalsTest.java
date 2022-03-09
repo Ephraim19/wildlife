@@ -1,25 +1,42 @@
 package models;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class AnimalsTest {
+
+    public DatabaseRule database = new DatabaseRule();
+
     @Test
-    void AnimalInstatiatesCorrectly() {
-        Animals animal = new Animals(1,"cow");
+    void AnimalInstantiatesCorrectly() {
+        Animals animal = new Animals("cow");
         assertEquals(true,animal instanceof Animals);
     }
+//
+//    @Test
+//    void getIdreturnsId() {
+//        Animals animal = new Animals("cow");
+//        assertEquals(1,animal.getId());
+//    }
 
     @Test
-    void getIdreturnsId() {
-        Animals animal = new Animals(1,"cow");
-        assertEquals(1,animal.getId());
-    }
-
-    @Test
-    void getNamereturnsName() {
-        Animals animal = new Animals(1,"cow");
+    void getNameReturnsName() {
+        Animals animal = new Animals("cow");
         assertEquals("cow",animal.getName());
     }
+    @Test
+    public void save_assignsIdToObject() {
+        Animals animal = new Animals("cow");
+        animal.save();
+        Animals savedAnimal = Animals.all().get(0);
+        assertEquals(animal.getId(), savedAnimal.getId());
+    }
 }
+
+
+
+
+
+
+
+
