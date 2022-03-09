@@ -40,7 +40,7 @@ public class Sightings implements WildlifeInterface {
     @Override
     public void save() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO sights (animal_id,location,ranger) VALUES (:animal_id,:location,:ranger)";
+            String sql = "INSERT INTO sights (animal_id,location,ranger,time) VALUES (:animal_id,:location,:ranger,:time)";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("animal_id", this.animal_id)
                     .addParameter("location",this.location)

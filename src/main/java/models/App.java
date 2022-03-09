@@ -34,7 +34,6 @@ public class App {
             String animalId = request.queryParams("animal");
             String location = request.queryParams ("loc");
             String ranger = request.queryParams("name");
-            System.out.println(ranger);
             Sightings sight = new Sightings(animalId,location,ranger);
             sight.save();
             response.redirect("/");
@@ -47,6 +46,7 @@ public class App {
             String animalName = request.queryParams("name");
             String age = request.queryParams ("age");
             String health = request.queryParams("health");
+
             EndageredAnimals animal = new EndageredAnimals(animalName,age,health);
             animal.save();
             //get all endangered animals
