@@ -36,8 +36,7 @@ public class App {
             String ranger = request.queryParams("name");
             Sightings sight = new Sightings(animalId,location,ranger);
             sight.save();
-            response.redirect("/");
-            return null;
+            return new ModelAndView(model,"success.hbs");
         },new HandlebarsTemplateEngine());
 
         //add endangered animals and save
