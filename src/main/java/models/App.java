@@ -49,7 +49,7 @@ public class App {
             EndageredAnimals animal = new EndageredAnimals(animalName,age,health);
             animal.save();
             //get all endangered animals
-            model.put("animals",EndageredAnimals.all());
+            model.put("animals",Animals.all());
             System.out.println(EndageredAnimals.all());
             return new ModelAndView(model,"endangeredSightings.hbs");
         },new HandlebarsTemplateEngine());
