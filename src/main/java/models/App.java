@@ -12,6 +12,9 @@ public class App {
     public static void main(String[] args) {
         get("/",(request, response) -> {
             Map<String,Object> model=new HashMap<String, Object>();
+            //getting all sightings to display on home screen
+            System.out.println(Sightings.all());
+            model.put("sights",Sightings.all());
             return new ModelAndView(model,"index.hbs");
         },new HandlebarsTemplateEngine());
 

@@ -4,6 +4,8 @@ import org.sql2o.Connection;
 
 import java.util.Date;
 import java.sql.Timestamp;
+import java.util.List;
+
 public class Sightings implements WildlifeInterface {
     private int id;
     private String ranger;
@@ -48,6 +50,15 @@ public class Sightings implements WildlifeInterface {
                     .addParameter("time",this.time)
                     .executeUpdate()
                     .getKey();
+        }
+    }
+
+
+    //returns all objects in database
+    public static List<Sightings> all() {
+        String sql = "SELECT * FROM sights";
+        try(Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql).executeAndFetch(Sightings.class);
         }
     }
 }

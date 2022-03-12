@@ -9,5 +9,18 @@
     <a href="endangered-animal/add">Add endangered animal</a>
 </div>
 
-
+<div class="p-4 mx-auto " style="width: 150px;">
+    <h4 class="text-danger" >sightings</h4>
+</div>
+<div class="p-4 mx-auto " style="width: 50%;">
+{{#each sights}}
+    <div class="card mb-3" style="width: 25rem;">
+        <div class="card-body">
+            <h6 class="card-title mb-2">Animal: <b class="text-danger" >{{animal_id}}</b></h6>
+            <p class="card-subtitle mb-2 ">Location: <b class="text-danger" >{{location}}</b></p>
+            <p>Ranger: <b class="text-danger" >{{ranger}}</b></p>
+        </div>
+    </div>
+{{/each}}
+</div>
 {{> layout.hbs}}
