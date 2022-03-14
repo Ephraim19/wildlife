@@ -1,0 +1,7 @@
+App.class
+models/EndageredAnimals.class
+models/AnimalsInherit.class
+models/Sightings.class
+models/DB.class
+models/Animals.class
+models/WildlifeInterface.class

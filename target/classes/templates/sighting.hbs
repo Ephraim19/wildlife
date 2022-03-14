@@ -1,0 +1,55 @@
+<div class="bg-warning mb-2 ">
+    <div class="p-4 mx-auto" style="width: 150px;">
+        <h4>Wildlife tracker</h4>
+    </div>
+</div>
+
+<div class="container">
+    <p><b>Add a sighting</b></p>
+
+    <form action="/new/sighting" method="post" >
+
+        <p>Choose animal</p>
+
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="animal">Animal</label>
+                </div>
+                <select class="custom-select" id="animal" name="animal">
+                        {{#each animals}}
+                            <option name="animal" value={{name}}>{{name}}</option>
+                        {{/each}}
+                </select>
+            </div>
+        </div>
+
+        <p>Choose a location</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="loc" id="loc" value="location A">
+            <label class="form-check-label" for="loc1">
+                Location A
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="loc" id="loc" value="location B">
+            <label class="form-check-label" for="loc2">
+                Location B
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="loc" id="loc" value="location C">
+            <label class="form-check-label" for="loc3">
+                Location C
+            </label>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Ranger name</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <button type="submit" class="btn btn-warning mt-3" >Add</button>
+    </form>
+
+</div>
+
+{{> layout.hbs}}
