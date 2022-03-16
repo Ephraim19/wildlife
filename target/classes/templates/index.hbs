@@ -1,12 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildlife</title>
+</head>
+<body>
 <div class="bg-warning mb-2 ">
-    <div class="p-4 mx-auto" style="width: 150px;">
-        <h4>Wildlife tracker</h4>
+    <div class="p-4 mx-auto " style="width: 300px;">
+        <h4 class="text-white font-weight-bold" >Wildlife-Tracker-App</h4>
     </div>
 </div>
 
 <div class="container">
-    <a href="animal/add">Add animal</a> <br>
-    <a href="endangered-animal/add">Add endangered animal</a>
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-5 p-3">
+            <a href="animal/add"><img class="p-0.5" style="height: 150px;; width:auto;" src="https://media.wired.com/photos/593261cab8eb31692072f129/master/pass/85120553.jpg"> </a> <br> <br>
+            <a href="animal/add" class="btn btn-outline-danger btn-sm active " role="button" aria-pressed="true">Add animal</a>
+        </div>
+        <div class="col col-lg-2 p-3">
+            <a href="endangered-animal/add"><img class="p-0.5" style="height: 150px;; width:auto;"  src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGFuaW1hbHxlbnwwfHwwfHw%3D&w=1000&q=80" ></a> <br> <br>
+            <a href="endangered-animal/add" class="btn btn-outline-danger btn-sm active " role="button" aria-pressed="true">Add endangered animal</a>       
+        </div>
+    </div>
 </div>
 
 <div class="p-4 mx-auto " style="width: 150px;">
@@ -23,4 +40,8 @@
     </div>
 {{/each}}
 </div>
+</body>
+</html>
+
+
 {{> layout.hbs}}

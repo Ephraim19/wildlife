@@ -29,14 +29,40 @@ public class EndageredAnimals extends AnimalsInherit{
         return age;
     }
 
-    //returns all objects in database
-    public static List<EndageredAnimals> all() {
-        String sql = "SELECT * FROM endangered";
-        try(Connection con = DB.sql2o.open()) {
-            return con.createQuery(sql).executeAndFetch(EndageredAnimals.class);
-        }
+//    //returns all objects in database
+//    public static List<EndageredAnimals> all() {
+//        String sql = "SELECT * FROM endangered";
+//        try(Connection con = DB.sql2o.open()) {
+//            return con.createQuery(sql).executeAndFetch(EndageredAnimals.class);
+//        }
+//    }
+//returns all objects in database
+public static List<EndageredAnimals> all() {
+    String sql = "SELECT * FROM all_animals";
+    try(Connection con = DB.sql2o.open()) {
+        return con.createQuery(sql).executeAndFetch(EndageredAnimals.class);
     }
+}
 
+
+//    //saving to database
+//    @Override
+//    public void save() {
+//
+//        try (Connection con=DB.sql2o.open()){
+//
+//
+//            String sql ="INSERT INTO endangered (name,age,health) VALUES (:name,:age,:health)";
+//
+//            this.id=(int) con.createQuery(sql,true)
+//                    .addParameter("name",this.name)
+//                    .addParameter("age",this.age)
+//                    .addParameter("health",this.health)
+//                    .executeUpdate()
+//                    .getKey();
+//        }
+//
+//    }
 
     //saving to database
     @Override
@@ -45,7 +71,7 @@ public class EndageredAnimals extends AnimalsInherit{
         try (Connection con=DB.sql2o.open()){
 
 
-            String sql ="INSERT INTO endangered (name,age,health) VALUES (:name,:age,:health)";
+            String sql ="INSERT INTO all_animals (name,age,health) VALUES (:name,:age,:health)";
 
             this.id=(int) con.createQuery(sql,true)
                     .addParameter("name",this.name)

@@ -1,17 +1,18 @@
 <div class="bg-warning mb-2 ">
-    <div class="p-4 mx-auto" style="width: 150px;">
-        <h4>Wildlife tracker</h4>
+    <div class="p-4 mx-auto " style="width: 300px;">
+        <h4 class="text-white font-weight-bold" >Wildlife-Tracker-App</h4>
     </div>
 </div>
 
 <div class="container">
-    <b>Add endangered animals</b>
+     <div class="mx-auto" style="width: 400px;" >
+    <b>Animal name</b>
     <form action="/sighting/endangered" method="post" >
         <div class="mb-3">
-            <label for="name" class="form-label">Your name</label>
+            <label for="name" class="form-label"></label>
             <input type="text" class="form-control" id="name" name="name">
         </div>
-        <p>Choose animal age</p>
+        <b>Choose animal age</b> <br>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="age" id="age" value="newborn">
             <label class="form-check-label" for="age">
@@ -31,7 +32,7 @@
             </label>
         </div>
 
-        <p>Choose animal health</p>
+        <b>Choose animal health</b> <br>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="health" id="health" value="healthy">
             <label class="form-check-label" for="health">
@@ -51,9 +52,9 @@
             </label>
         </div>
 
-        <button type="submit" class="btn btn-warning mt-3" >Submit</button>
+        <button type="submit" class="btn btn-warning mt-3" >Add animal</button>
     </form>
-
+</div>
 </div>
 
 

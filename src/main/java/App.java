@@ -73,8 +73,7 @@ public class App {
         post("/sighting/animal",(request, response) -> {
             Map<String,Object> model=new HashMap<String, Object>();
             String animalName = request.queryParams("name");
-            //model.put("animal",animalName);
-            Animals animal = new Animals(animalName);
+            Animals animal = new Animals(animalName,null,null);
             animal.save();
             //get all animals
             model.put("animals",Animals.all());
